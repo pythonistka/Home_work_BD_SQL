@@ -1,16 +1,28 @@
-# This is a sample Python script.
+import sqlite3
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+with sqlite3.connect("MusicSite.db") as db:
+    cursor = db.cursor()
 
+cursor.execute("""CREATE TABLE IF NOT EXISTS Genre(
+id integer PRIMARY KEY,
+name text NOT NULL);""")
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+cursor.execute("""CREATE TABLE IF NOT EXISTS Musician(
+id integer PRIMARY KEY,
+name text NOT NULL,
+genre_id integer REFERENCES Genre(id));""")
 
+cursor.execute("""CREATE TABLE IF NOT EXISTS Album(
+id integer PRIMARY KEY,
+musician_id integer REFERENCES Musician(id),
+name text NOT NULL,
+year integer NOT NULL);""")
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+cursor.execute("""CREATE TABLE IF NOT EXISTS Track(
+id integer PRIMARY KEY,
+album_id integer REFERENCES Album(id),
+name text NOT NULL,
+duration integer NOT NULL);""")
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+db.close()
+

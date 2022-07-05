@@ -270,4 +270,29 @@ INSERT INTO CollectionTrack(track_id, collection_id)
 VALUES("15", "8");
 
 INSERT INTO CollectionTrack(track_id, collection_id)
-VALUES("16", "8")
+VALUES("16", "8");
+
+INSERT INTO Album(name, year)
+VALUES("Гучи", "2018");
+
+INSERT INTO MusicianAlbum(musician_id, album_id)
+VALUES("4", "9");
+
+INSERT INTO Track(album_id, name, duration)
+VALUES("9", "Гучи", "3:31");
+
+INSERT INTO CollectionTrack(track_id, collection_id)
+VALUES("17", "8");
+
+INSERT INTO Album(name, year)
+VALUES("Cat Style", "2020");
+
+INSERT INTO MusicianAlbum(musician_id, album_id)
+VALUES("2", "10");
+
+INSERT INTO Track(album_id, name, duration)
+VALUES("10", "Cat Cat Cat", "3:15");
+
+INSERT INTO CollectionTrack(track_id, collection_id)
+VALUES("18", "4")
+

@@ -298,3 +298,6 @@ VALUES("18", "4")
 
 INSERT INTO MusicianGenre(genre_id, musician_id)
 VALUES("5", "1")
+
+INSERT INTO Track(album_id, name, duration)
+VALUES("10", "Cat work", "2:59")

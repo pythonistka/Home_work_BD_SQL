@@ -1,6 +1,6 @@
 import sqlite3
 
-with sqlite3.connect("MusicSiteNewVersion.db") as db:
+with sqlite3.connect("MusicSiteNewCorrectVersion.db") as db:
     cursor = db.cursor()
 
 cursor.execute("""INSERT INTO Genre(name)
@@ -23,36 +23,36 @@ cursor.execute("""INSERT INTO Genre(name)
 VALUES("Хип-Хоп")""")
 db.commit()
 
-cursor.execute("""INSERT INTO Musician(name)
-VALUES("Red Hot Chili Peppers")""")
+cursor.execute("""INSERT INTO Musician(name, genre_id)
+VALUES("Red Hot Chili Peppers", "1")""")
 db.commit()
 
-cursor.execute("""INSERT INTO Musician(name)
-VALUES("Coldplay")""")
+cursor.execute("""INSERT INTO Musician(name, genre_id)
+VALUES("Coldplay", "1")""")
 db.commit()
 
-cursor.execute("""INSERT INTO Musician(name)
-VALUES("Полина Гагарина")""")
+cursor.execute("""INSERT INTO Musician(name, genre_id)
+VALUES("Полина Гагарина", "2")""")
 db.commit()
 
-cursor.execute("""INSERT INTO Musician(name)
-VALUES("Тимати")""")
+cursor.execute("""INSERT INTO Musician(name, genre_id)
+VALUES("Тимати", "3")""")
 db.commit()
 
-cursor.execute("""INSERT INTO Musician(name)
-VALUES("Лариса Долина")""")
+cursor.execute("""INSERT INTO Musician(name, genre_id)
+VALUES("Лариса Долина", "4")""")
 db.commit()
 
-cursor.execute("""INSERT INTO Musician(name)
-VALUES("Баста")""")
+cursor.execute("""INSERT INTO Musician(name, genre_id)
+VALUES("Баста", "5")""")
 db.commit()
 
-cursor.execute("""INSERT INTO Musician(name)
-VALUES("Дима Билан")""")
+cursor.execute("""INSERT INTO Musician(name, genre_id)
+VALUES("Дима Билан", "2")""")
 db.commit()
 
-cursor.execute("""INSERT INTO Musician(name)
-VALUES("Юлия Савичева")""")
+cursor.execute("""INSERT INTO Musician(name, genre_id)
+VALUES("Юлия Савичева", "2")""")
 db.commit()
 
 cursor.execute("""INSERT INTO MusicianGenre(genre_id, musician_id)
@@ -87,36 +87,36 @@ cursor.execute("""INSERT INTO MusicianGenre(genre_id, musician_id)
 VALUES("2", "8")""")
 db.commit()
 
-cursor.execute("""INSERT INTO Album(name, year)
-VALUES("Stadium Arcadium", "2006")""")
+cursor.execute("""INSERT INTO Album(name, year, musician_id)
+VALUES("Stadium Arcadium", "2006", "1")""")
 db.commit()
 
-cursor.execute("""INSERT INTO Album(name, year)
-VALUES("Everyday Life", "2019")""")
+cursor.execute("""INSERT INTO Album(name, year, musician_id)
+VALUES("Everyday Life", "2019", "2")""")
 db.commit()
 
-cursor.execute("""INSERT INTO Album(name, year)
-VALUES("Попроси у облаков", "2007")""")
+cursor.execute("""INSERT INTO Album(name, year, musician_id)
+VALUES("Попроси у облаков", "2007", "3")""")
 db.commit()
 
-cursor.execute("""INSERT INTO Album(name, year)
-VALUES("Олимп", "2016")""")
+cursor.execute("""INSERT INTO Album(name, year, musician_id)
+VALUES("Олимп", "2016", "4")""")
 db.commit()
 
-cursor.execute("""INSERT INTO Album(name, year)
-VALUES("Погода в доме", "1997")""")
+cursor.execute("""INSERT INTO Album(name, year, musician_id)
+VALUES("Погода в доме", "1997", "5")""")
 db.commit()
 
-cursor.execute("""INSERT INTO Album(name, year)
-VALUES("К тебе", "2008")""")
+cursor.execute("""INSERT INTO Album(name, year, musician_id)
+VALUES("К тебе", "2008", "6")""")
 db.commit()
 
-cursor.execute("""INSERT INTO Album(name, year)
-VALUES("Не молчи", "2015")""")
+cursor.execute("""INSERT INTO Album(name, year, musician_id)
+VALUES("Не молчи", "2015", "7")""")
 db.commit()
 
-cursor.execute("""INSERT INTO Album(name, year)
-VALUES("Магнит", "2021")""")
+cursor.execute("""INSERT INTO Album(name, year, musician_id)
+VALUES("Магнит", "2021", "8")""")
 db.commit()
 
 cursor.execute("""INSERT INTO MusicianAlbum(musician_id, album_id)
@@ -366,6 +366,38 @@ db.commit()
 
 cursor.execute("""INSERT INTO CollectionTrack(track_id, collection_id)
 VALUES("16", "8")""")
+db.commit()
+
+cursor.execute("""INSERT INTO Album(name, year, musician_id)
+VALUES("Гучи", "2018", "4")""")
+db.commit()
+
+cursor.execute("""INSERT INTO MusicianAlbum(musician_id, album_id)
+VALUES("4", "9")""")
+db.commit()
+
+cursor.execute("""INSERT INTO Track(album_id, name, duration)
+VALUES("9", "Гучи", "3:31")""")
+db.commit()
+
+cursor.execute("""INSERT INTO CollectionTrack(track_id, collection_id)
+VALUES("17", "8")""")
+db.commit()
+
+cursor.execute("""INSERT INTO Album(name, year, musician_id)
+VALUES("Cat Style", "2020", "2")""")
+db.commit()
+
+cursor.execute("""INSERT INTO MusicianAlbum(musician_id, album_id)
+VALUES("2", "10")""")
+db.commit()
+
+cursor.execute("""INSERT INTO Track(album_id, name, duration)
+VALUES("10", "Cat Cat Cat", "3:15")""")
+db.commit()
+
+cursor.execute("""INSERT INTO CollectionTrack(track_id, collection_id)
+VALUES("18", "4")""")
 db.commit()
 
 db.close()

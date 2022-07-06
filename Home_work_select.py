@@ -1,6 +1,6 @@
 import sqlite3
 
-with sqlite3.connect("MusicSiteNewVersion.db") as db:
+with sqlite3.connect("MusicSiteNewCorrectVersion.db") as db:
     cursor = db.cursor()
 
 #название и год выхода альбомов, вышедших в 2018 году
@@ -19,14 +19,14 @@ for x in cursor.fetchall():
 print()
 #название треков, продолжительность которых не менее 3,5 минуты
 cursor.execute("""SELECT Track.name
- FROM Track WHERE duration > "3:5" """)
+ FROM Track WHERE duration >= "3:5" """)
 for x in cursor.fetchall():
     print(x)
 
 print()
 #названия сборников, вышедших в период с 2018 по 2020 год включительно
 cursor.execute("""SELECT Collection.name
- FROM Collection WHERE 2018 < year < 2020 """)
+ FROM Collection WHERE 2018 <= year <= 2020 """)
 for x in cursor.fetchall():
     print(x)
 

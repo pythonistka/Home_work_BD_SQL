@@ -296,4 +296,5 @@ VALUES("10", "Cat Cat Cat", "3:15")
 INSERT INTO CollectionTrack(track_id, collection_id)
 VALUES("18", "4")
 
-db.close()
+INSERT INTO MusicianGenre(genre_id, musician_id)
+VALUES("5", "1")

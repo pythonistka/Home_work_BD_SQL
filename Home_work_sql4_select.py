@@ -122,10 +122,26 @@ cursor.execute("""
 for x in cursor.fetchall():
     print(x)
 
+print()
 # 8 исполнителя(-ей), написавшего самый короткий по продолжительности трек (теоретически таких треков может быть несколько)
-
-
-
+cursor.execute("""
+    SELECT name 
+    FROM Musician
+    WHERE Musician.id
+    IN (
+        SELECT musician_id
+        FROM MusicianAlbum
+        WHERE MusicianAlbum.album_id
+        IN (
+            SELECT album_id
+            FROM Track
+            WHERE duration = (
+                SELECT MIN(duration) FROM Track)
+            )
+        )    
+""")
+for x in cursor.fetchall():
+    print(x)
 
 
 print()

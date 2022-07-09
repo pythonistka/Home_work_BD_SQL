@@ -40,6 +40,6 @@ for x in cursor.fetchall():
 print()
 #название треков, которые содержат слово "мой"/"my"
 cursor.execute("""SELECT Track.name
- FROM Track WHERE name LIKE '%%мой%%' """)
+ FROM Track WHERE name LIKE '%мой%' OR name LIKE '%my%' """)
 for x in cursor.fetchall():
     print(x)

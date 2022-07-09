@@ -14,4 +14,4 @@ SELECT Musician.name
 FROM Musician WHERE name NOT LIKE '% %'
 
 SELECT Track.name
-FROM Track WHERE name LIKE '%%мой%%'
+FROM Track WHERE name LIKE '%%мой%%' OR name LIKE '%my%'
